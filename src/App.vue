@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <router-view/>
+    <main class="main">
+      <router-view />
+
+      <svg-icon name="logo"/>
+    </main>
   </div>
 </template>
 
