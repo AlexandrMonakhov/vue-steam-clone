@@ -1,9 +1,16 @@
 <template>
-  <div class="home">
-    Home page
-  </div>
+	<div class="home">
+		Home page
+
+		<card name="games/battlefield" />
+	</div>
 </template>
 
 <script>
-export default {}
+import Card from '../components/Card.vue'
+export default {
+	components: {
+		Card
+	},
+}
 </script>

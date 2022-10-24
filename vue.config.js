@@ -1,16 +1,16 @@
 const path = require('path');
- 
+
 function resolve(dir) {
   return path.join(__dirname, dir);
 }
- 
+
 module.exports = {
   chainWebpack: config => {
     config.module
       .rule('svg')
       .exclude.add(resolve('src/assets/icons'))
       .end()
-   
+
     config.module
       .rule('icons')
       .test(/\.svg$/)

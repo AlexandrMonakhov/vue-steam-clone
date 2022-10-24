@@ -21,7 +21,7 @@ import Logo from '@/components/atomics/Logo.vue';
 import TextInput from '@/components/compounds/TextInput.vue';
 
 export default {
-	name: 'TheHeader',
+	name: 'Header',
 	components: {
 		Logo,
 		TextInput,
