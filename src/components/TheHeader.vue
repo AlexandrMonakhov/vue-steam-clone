@@ -12,7 +12,8 @@
 			/>
 		</div>
 
-		<div class="header__trailing"></div>
+		<div class="header__trailing">
+		</div>
 	</header>
 </template>
 
@@ -35,10 +36,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/style/vars.scss';
+
 .header {
 	display: flex;
 	align-items: center;
 	min-height: 80px;
+	background-color: $color_primary_alt;
+	box-shadow: 0px 4px 8px rgba($color_black, .12);
 
 	&__leading {
 		margin-right: 32px;
