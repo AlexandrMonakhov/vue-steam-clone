@@ -10,7 +10,7 @@
 				:key="index"
 			>
 				<img
-					:src="require(`@/assets/images/${image}.jpg`)"
+					:src="image.image"
 					alt="Изображение слайдера"
 				/>
 			</div>

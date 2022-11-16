@@ -39,9 +39,19 @@ export default {
 		display: flex;
 	}
 
+	&__content .main {
+		max-height: calc(100vh - 112px);
+	}
+
 	&__content {
+    overflow-y: scroll;
 		width: 100%;
 		padding: 32px 56px 0 32px;
+
+		&::-webkit-scrollbar {
+			width: 0;
+			display: none;
+		}
 	}
 }
 </style>

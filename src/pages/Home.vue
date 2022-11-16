@@ -1,37 +1,57 @@
 <template>
   <div class="home-page">
-    <div class="home-page__slider">
-			<image-slider :slider-controller="sliderController" />
+		<div class="home-page__cards">
+			<div
+				class="home-page__game-card"
+				v-for="game in games"
+				:key="game.id"
+			>
+				<game-card
+					:game="game"
+					@click-card="goToGamePage(game.id)"
+				/>
+			</div>
 		</div>
   </div>
 </template>
 
 <script>
-import ImageSlider from '@/components/compounds/ImageSlider.vue';
-import { SliderController } from '@/controllers/slider-controller';
+import GameCard from '@/components/GameCard.vue';
+import ApiGames from '@/api/ApiGames';
 
 export default {
 	name: 'Home',
 	components: {
-		ImageSlider,
+		GameCard,
 	},
 	data() {
 		return {
-			sliderController: new SliderController(),
-			images: ['slider-image', 'slider-image-2', 'slider-image', 'slider-image-2', 'slider-image', 'slider-image-2'],
+			games: [],
 		}
 	},
 	mounted() {
-		this.sliderController.setImages(this.images);
+		this.fetchGames();
+	},
+	methods: {
+		fetchGames() {
+			ApiGames.games()
+				.then((response) => {
+					this.games = response.data;
+				});
+		},
+		goToGamePage(id) {
+			this.$router.push(`/game/${id}`);
+		}
 	},
 }
 </script>
 
 <style lang="scss" scoped>
 .home-page {
-	&__slider {
-		width: 856px;
-		height: 483px;
+	&__cards {
+		display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(365px, 1fr));
+    gap: 32px;
 	}
 }
 </style>
