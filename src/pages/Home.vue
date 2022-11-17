@@ -1,9 +1,12 @@
 <template>
   <div class="home-page">
-		<div class="home-page__cards">
+		<div
+			class="home-page__cards"
+			v-if="isGamesExists"
+		>
 			<div
 				class="home-page__game-card"
-				v-for="game in games"
+				v-for="game in filtredGames"
 				:key="game.id"
 			>
 				<game-card
@@ -12,10 +15,18 @@
 				/>
 			</div>
 		</div>
+
+		<div
+			class="home-page__empty"
+			v-else
+		>
+			Ничего не найдено
+		</div>
   </div>
 </template>
 
 <script>
+import { eventBus } from '@/main';
 import GameCard from '@/components/GameCard.vue';
 import ApiGames from '@/api/ApiGames';
 
@@ -27,7 +38,31 @@ export default {
 	data() {
 		return {
 			games: [],
+			searchString: '',
 		}
+	},
+	computed: {
+		filtredGames() {
+			if (this.games.length < 0) {
+				return;
+			}
+
+			return this.games.filter((game) => {
+				return game.title?.toLowerCase()
+					.includes(this.searchString?.toLowerCase());
+			});
+		},
+		isGamesExists() {
+			return this.filtredGames.length > 0;
+		},
+	},
+	created() {
+		eventBus.$on('search', (searchString) => {
+			this.searchString = searchString;
+		});
+		eventBus.$on('cancel', (value) => {
+			this.searchString = value;
+		});
 	},
 	mounted() {
 		this.fetchGames();
@@ -41,7 +76,7 @@ export default {
 		},
 		goToGamePage(id) {
 			this.$router.push(`/game/${id}`);
-		}
+		},
 	},
 }
 </script>

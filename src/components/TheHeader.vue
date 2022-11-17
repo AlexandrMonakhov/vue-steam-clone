@@ -8,7 +8,9 @@
 			<text-input
 				leading-icon="search"
 				placeholder="Search anything"
-				v-model="searchStr"
+				v-model="searchString"
+				@input.native="onInputSearch"
+				@cancel="onClickCancel"
 			/>
 		</div>
 
@@ -18,6 +20,7 @@
 </template>
 
 <script>
+import { eventBus } from '@/main';
 import Logo from '@/components/atomics/Logo.vue';
 import TextInput from '@/components/compounds/TextInput.vue';
 
@@ -29,9 +32,17 @@ export default {
 	},
 	data() {
 		return {
-			searchStr: '',
+			searchString: '',
 		}
-	}
+	},
+	methods: {
+		onInputSearch() {
+			eventBus.$emit('search', this.searchString);
+		},
+		onClickCancel() {
+			eventBus.$emit('cancel', this.searchString = '');
+		},
+	},
 }
 </script>
 
