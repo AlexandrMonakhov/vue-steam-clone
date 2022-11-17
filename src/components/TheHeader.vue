@@ -1,7 +1,10 @@
 <template>
 	<header class="header">
 		<div class="header__leading">
-			<logo with-pointer />
+			<logo
+				with-pointer
+				@click="goToHomePage"
+			/>
 		</div>
 
 		<div class="header__center">
@@ -42,6 +45,9 @@ export default {
 		onClickCancel() {
 			eventBus.$emit('cancel', this.searchString = '');
 		},
+		goToHomePage() {
+			this.$router.push('/');
+		}
 	},
 }
 </script>

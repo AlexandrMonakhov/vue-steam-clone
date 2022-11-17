@@ -31,7 +31,7 @@ import GameCard from '@/components/GameCard.vue';
 import ApiGames from '@/api/ApiGames';
 
 export default {
-	name: 'Home',
+	name: 'HomePage',
 	components: {
 		GameCard,
 	},

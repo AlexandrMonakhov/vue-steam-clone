@@ -12,7 +12,7 @@ import ImageSlider from '../components/compounds/ImageSlider.vue';
 import { SliderController } from '@/controllers/slider-controller';
 
 export default {
-	name: 'Game',
+	name: 'GamePage',
 	components: {
 		ImageSlider
 	},
