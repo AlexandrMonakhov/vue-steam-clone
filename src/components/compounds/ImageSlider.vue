@@ -18,10 +18,20 @@
 
 		<div class="image-slider__action">
 			<div class="image-slider__prev-button">
-				<button @click="sliderController.prev()">Назад</button>
+				<the-button
+					icon="arrow-left"
+					rounded
+					hide-label
+					@click="sliderController.prev()"
+				/>
 			</div>
 			<div class="image-slider__next-button">
-				<button @click="sliderController.next()">Вперед</button>
+				<the-button
+					icon="arrow-right"
+					rounded
+					hide-label
+					@click="sliderController.next()"
+				/>
 			</div>
 		</div>
 
@@ -29,7 +39,7 @@
 			<div
 				class="image-slider__dot"
 				:class="{ 'image-slider__dot_active': sliderController.isActiveSlide(index) }"
-				v-for="(dot, index) in sliderController.images.length"
+				v-for="(dot, index) in sliderController.getImagesLength()"
 				:key="index"
 				@click="sliderController.onDotClick(index)"
 			/>
@@ -38,8 +48,13 @@
 </template>
 
 <script>
+import TheButton from '@/components/atomics/TheButton';
+
 export default {
 	name: 'ImageSlider',
+	components: {
+		TheButton,
+	},
 	props: {
 		sliderController: {
 			type: Object,

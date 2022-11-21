@@ -144,23 +144,16 @@ export default {
 	}
 
 	&__leading {
-		display: flex;
 		position: absolute;
 		left: 16px;
 	}
 
 	&__trailing {
-		display: flex;
 		position: absolute;
 		right: 16px;
 	}
 
-	&__trailing-icon {
-		display: flex;
-	}
-
 	&__trailing-icon-cancel {
-		display: flex;
 		cursor: pointer;
 	}
 

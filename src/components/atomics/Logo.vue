@@ -36,8 +36,6 @@ export default {
 
 <style lang="scss" scoped>
 .logo {
-	display: flex;
-
 	&_with-pointer {
 		cursor: pointer;
 	}

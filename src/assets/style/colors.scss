@@ -1,0 +1,87 @@
+@import './vars';
+
+.text-color {
+	&_primary {
+		color: $color_primary !important;
+	}
+
+	&_black {
+		color: $color_black !important;
+
+		&-02 {
+			color: rgba($color_black, .02) !important;
+		}
+
+		&-04 {
+			color: rgba($color_black, .04) !important;
+		}
+
+		&-08 {
+			color: rgba($color_black, .08) !important;
+		}
+
+		&-12 {
+			color: rgba($color_black, .12) !important;
+		}
+
+		&-20 {
+			color: rgba($color_black, .20) !important;
+		}
+
+		&-32 {
+			color: rgba($color_black, .32) !important;
+		}
+
+		&-48 {
+			color: rgba($color_black, .48) !important;
+		}
+
+		&-64 {
+			color: rgba($color_black, .64) !important;
+		}
+
+		&-80 {
+			color: rgba($color_black, .80) !important;
+		}
+	}
+
+	&_white {
+		color: $color_white !important;
+
+		&-02 {
+			color: rgba($color_white, .02) !important;
+		}
+
+		&-04 {
+			color: rgba($color_white, .04) !important;
+		}
+
+		&-08 {
+			color: rgba($color_white, .08) !important;
+		}
+
+		&-12 {
+			color: rgba($color_white, .12) !important;
+		}
+
+		&-20 {
+			color: rgba($color_white, .20) !important;
+		}
+
+		&-32 {
+			color: rgba($color_white, .32) !important;
+		}
+
+		&-48 {
+			color: rgba($color_white, .48) !important;
+		}
+
+		&-64 {
+			color: rgba($color_white, .64) !important;
+		}
+
+		&-80 {
+			color: rgba($color_white, .80) !important;
+		}
+	}
+}

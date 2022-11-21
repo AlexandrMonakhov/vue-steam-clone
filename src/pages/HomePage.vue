@@ -1,5 +1,8 @@
 <template>
-  <div class="home-page">
+	<div
+		class="home-page"
+		v-if="games.length > 0"
+	>
 		<div
 			class="home-page__cards"
 			v-if="isGamesExists"
@@ -11,29 +14,41 @@
 			>
 				<game-card
 					:game="game"
+					clickable
 					@click-card="goToGamePage(game.id)"
 				/>
 			</div>
 		</div>
 
 		<div
-			class="home-page__empty"
+			class="home-page__nothing-found"
 			v-else
 		>
-			Ничего не найдено
+			<nothing-found />
 		</div>
-  </div>
+	</div>
+
+	<div
+		class="home-page__loader"
+		v-else
+	>
+		<loader />
+	</div>
 </template>
 
 <script>
 import { eventBus } from '@/main';
 import GameCard from '@/components/GameCard.vue';
+import Loader from '@/components/Loader.vue';
+import NothingFound from '@/components/NothingFound.vue';
 import ApiGames from '@/api/ApiGames';
 
 export default {
 	name: 'HomePage',
 	components: {
 		GameCard,
+		Loader,
+		NothingFound,
 	},
 	data() {
 		return {
@@ -68,8 +83,8 @@ export default {
 		this.fetchGames();
 	},
 	methods: {
-		fetchGames() {
-			ApiGames.games()
+		async fetchGames() {
+			await ApiGames.games()
 				.then((response) => {
 					this.games = response.data;
 				});
@@ -85,8 +100,22 @@ export default {
 .home-page {
 	&__cards {
 		display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(365px, 1fr));
-    gap: 32px;
+		grid-template-columns: repeat(auto-fill, minmax(365px, 1fr));
+		gap: 32px;
+	}
+
+	&__nothing-found {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: calc(100vh - 112px);
+	}
+
+	&__loader {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: calc(100vh - 112px);
 	}
 }
 </style>

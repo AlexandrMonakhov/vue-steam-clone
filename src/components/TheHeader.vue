@@ -18,6 +18,7 @@
 		</div>
 
 		<div class="header__trailing">
+			<language-panel-selector />
 		</div>
 	</header>
 </template>
@@ -26,12 +27,14 @@
 import { eventBus } from '@/main';
 import Logo from '@/components/atomics/Logo.vue';
 import TextInput from '@/components/compounds/TextInput.vue';
+import LanguagePanelSelector from '@/components/LanguagePanelSelector.vue';
 
 export default {
-	name: 'TheHeader',
+	name: 'Header',
 	components: {
 		Logo,
 		TextInput,
+		LanguagePanelSelector,
 	},
 	data() {
 		return {
