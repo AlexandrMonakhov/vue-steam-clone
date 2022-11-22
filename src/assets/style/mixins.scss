@@ -1,0 +1,7 @@
+@import './vars.scss';
+
+@mixin border-radius($radius) {
+	border-radius: #{$radius};
+	-webkit-mask-image: -webkit-radial-gradient(circle, $color_white 100%, $color_black 100%);
+	-webkit-transform: translateZ(0);
+}

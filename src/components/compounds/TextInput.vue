@@ -30,11 +30,23 @@
 				/>
 			</div>
 
-			<div
-				class="text-input__trailing"
-				v-if="trailingIcon"
-			>
-				<svg-icon :name="trailingIcon" />
+			<div class="text-input__trailing">
+				<div
+					class="text-input__trailing-icon-cancel"
+					v-if="isCancelButtonVisible"
+				>
+					<svg-icon
+						name="cancel"
+						@mousedown.prevent="$emit('cancel')"
+					/>
+				</div>
+
+				<div
+					class="text-input__trailing-icon"
+					v-if="trailingIcon"
+				>
+					<svg-icon :name="trailingIcon" />
+				</div>
 			</div>
 		</label>
 	</div>
@@ -81,6 +93,10 @@ export default {
 			type: String,
 			default: '',
 		},
+		withoutCancelButton: {
+			type: Boolean,
+			default: false,
+		}
 	},
 	computed: {
 		className() {
@@ -95,7 +111,10 @@ export default {
 				this.big && `text-input__input-item_big`,
 			]
 		},
-	}
+		isCancelButtonVisible() {
+			return !this.withoutCancelButton && this.value.length > 0;
+		},
+	},
 }
 </script>
 
@@ -132,6 +151,10 @@ export default {
 	&__trailing {
 		position: absolute;
 		right: 16px;
+	}
+
+	&__trailing-icon-cancel {
+		cursor: pointer;
 	}
 
 	&__input {

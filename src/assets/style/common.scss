@@ -1,0 +1,122 @@
+@import './vars.scss';
+
+.noselect {
+	-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+			-moz-user-select: none;
+				-ms-user-select: none;
+						user-select: none;
+}
+
+.text-truncated {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	clip: rect(0 0 0 0);
+	overflow: hidden;
+}
+
+.full-width {
+	width: 100% !important;
+	max-width: none !important;
+}
+
+.full-height {
+	height: 100% !important;
+}
+
+.width {
+	&_40 {
+		width: 40px;
+	}
+}
+
+.divider {
+	display: block;
+	height: 2px;
+	border: 0;
+	border-top: 2px solid $color_white;
+
+	&-4 {
+		@extend .divider;
+		margin: 2px 0;
+	}
+
+	&-8 {
+		@extend .divider;
+		margin: 4px 0;
+	}
+
+	&-16 {
+		@extend .divider;
+		margin: 8px 0;
+	}
+
+	&-24 {
+		@extend .divider;
+		margin: 12px 0;
+	}
+
+	&-32 {
+		@extend .divider;
+		margin: 16px 0;
+	}
+
+	&-48 {
+		@extend .divider;
+		margin: 24px 0;
+	}
+
+	&-64 {
+		@extend .divider;
+		margin: 32px 0;
+	}
+}
+
+.clickable {
+	cursor: pointer;
+}
+
+.placeholder {
+	height: 44px;
+	background-color: rgba($color_white, .08);
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	overflow: hidden;
+
+	&_animated {
+		&::before {
+			content: '';
+			position: absolute;
+			left: -150px;
+			top: 0;
+			height: 100%;
+			width: 150px;
+			background: linear-gradient(to right, $color_transparent 0%, #E8E8E8 50%, $color_transparent 100%);
+			animation: load 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+		}
+	}
+}
+
+@keyframes load {
+  from {
+    left: -150px;
+  }
+
+  to {
+    left: 100%;
+  }
+}

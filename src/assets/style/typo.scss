@@ -1,0 +1,147 @@
+// Стили
+//
+// .h1
+// .h2
+// .h3
+// .ui-title
+// .ui-text
+// .button-label
+// .caption-1
+// .caption-2
+
+@import './vars';
+
+@mixin baseFont {
+	font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+	font-style: normal;
+	color: $color_white;
+	margin: 0;
+}
+
+@mixin weightFont {
+	&_regular {
+		font-weight: 400;
+	}
+
+	&_medium {
+		font-weight: 600;
+	}
+
+	&_bold {
+		font-weight: 700;
+	}
+}
+
+@mixin transform {
+	&_uppercase {
+		text-transform: uppercase;
+	}
+
+	&_lowercase {
+		text-transform: lowercase;
+	}
+}
+
+@mixin h1 {
+	@include baseFont();
+	font-weight: 700;
+	font-size: 28px;
+	line-height: 34px;
+}
+
+@mixin h2 {
+	@include baseFont();
+	font-weight: 700;
+	font-size: 22px;
+	line-height: 28px;
+}
+
+@mixin h3 {
+	@include baseFont();
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 20px;
+}
+
+@mixin ui-title {
+	@include baseFont();
+	@include weightFont();
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 24px;
+}
+
+@mixin ui-text {
+	@include baseFont();
+	@include weightFont();
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 22px;
+}
+
+@mixin button-label {
+	@include baseFont();
+	@include weightFont();
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 17px;
+	text-align: center;
+}
+
+@mixin caption-1 {
+	@include baseFont();
+	@include weightFont();
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 24px;
+}
+
+@mixin caption-2 {
+	@include baseFont();
+	@include weightFont();
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 16px;
+}
+
+/* ClearType */
+
+html {
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Styles */
+
+.h1 {
+	@include h1();
+}
+
+.h2 {
+	@include h2();
+}
+
+.h3 {
+	@include h3();
+}
+
+.ui-title {
+	@include ui-title();
+}
+
+.ui-text {
+	@include ui-text();
+}
+
+.button-label {
+	@include button-label();
+}
+
+.caption-1 {
+	@include caption-1();
+}
+
+.caption-2 {
+	@include caption-2();
+}

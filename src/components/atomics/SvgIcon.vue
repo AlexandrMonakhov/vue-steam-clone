@@ -1,9 +1,9 @@
 
 <template>
  	<svg
+		class="svg-icon"
 		v-if="icon"
 		preserveAspectRatio="xMaxYMax meet"
-		class="svg-icon"
 		v-bind="iconSize"
 		:viewBox="icon.viewBox"
 		v-on="inputListeners"
@@ -101,6 +101,7 @@
 
 <style lang="scss" scoped>
 .svg-icon {
+	display: flex;
 	fill: currentColor;
 	box-sizing: content-box;
 }
