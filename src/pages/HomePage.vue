@@ -98,6 +98,8 @@ export default {
 
 <style lang="scss" scoped>
 .home-page {
+	padding-bottom: 32px;
+
 	&__cards {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(365px, 1fr));

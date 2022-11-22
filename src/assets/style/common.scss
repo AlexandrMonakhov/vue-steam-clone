@@ -35,6 +35,54 @@
 	height: 100% !important;
 }
 
+.width {
+	&_40 {
+		width: 40px;
+	}
+}
+
+.divider {
+	display: block;
+	height: 2px;
+	border: 0;
+	border-top: 2px solid $color_white;
+
+	&-4 {
+		@extend .divider;
+		margin: 2px 0;
+	}
+
+	&-8 {
+		@extend .divider;
+		margin: 4px 0;
+	}
+
+	&-16 {
+		@extend .divider;
+		margin: 8px 0;
+	}
+
+	&-24 {
+		@extend .divider;
+		margin: 12px 0;
+	}
+
+	&-32 {
+		@extend .divider;
+		margin: 16px 0;
+	}
+
+	&-48 {
+		@extend .divider;
+		margin: 24px 0;
+	}
+
+	&-64 {
+		@extend .divider;
+		margin: 32px 0;
+	}
+}
+
 .clickable {
 	cursor: pointer;
 }

@@ -1,4 +1,5 @@
 class SliderController {
+	sliderElement = null;
 	currentSlideIndex = 0;
 	images = [];
 
@@ -6,10 +7,18 @@ class SliderController {
 		return this.currentSlideIndex === index;
 	}
 
-	setTranslate() {
+	setSliderElement(element) {
+		this.sliderElement = element;
+	}
+
+	setTranslateStyle() {
 		return {
-			transform: `translateX(-${856 * this.currentSlideIndex}px)`
+			transform: `translateX(-${this.getSliderWidth() * this.currentSlideIndex}px)`
 		};
+	}
+
+	getSliderWidth() {
+		return this.sliderElement?.offsetWidth ?? 0;
 	}
 
 	setImages(images) {

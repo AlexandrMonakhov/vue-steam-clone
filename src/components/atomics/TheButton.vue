@@ -6,10 +6,10 @@
 		@click="onClick"
 	>
 		<div
-			class="the-button__label button-label noselect"
-			v-if="!hideLabel"
+			class="button__label button-label noselect"
+			v-if="labelSlotFilled"
 		>
-			{{ label }}
+			<slot />
 		</div>
 
 		<div
@@ -60,9 +60,9 @@ export default {
 			type: Boolean,
 			default: false,
 		},
-		hideLabel: {
+		showLabel: {
 			type: Boolean,
-			default: false,
+			default: true,
 		},
 	},
 	computed: {
@@ -71,9 +71,13 @@ export default {
 				`the-button_${this.type}`,
 				`the-button_${this.type}-${this.color}`,
 				this.rounded && 'the-button_rounded',
+				!this.labelSlotFilled && `button_icon-only`,
 				this.disabled && 'disabled',
 				this.fullWidth && `full-width`,
 			];
+		},
+		labelSlotFilled() {
+			return this.showLabel && !!this.$slots.default;
 		},
 	},
 	methods: {
@@ -106,7 +110,6 @@ export default {
 
 	&__label {
 		color: inherit;
-		margin: 0 8px;
 	}
 
 	&__icon {
@@ -119,6 +122,10 @@ export default {
 
 	&_rounded {
 		border-radius: 50%;
+	}
+
+	&_icon-only {
+		padding: 0;
 	}
 
 	// Types
@@ -162,21 +169,21 @@ export default {
 		}
 	}
 
-	&_filled-black {
-		background-color: rgba($color_black, .48);
+	&_filled-accent {
+		background-color: $color_accent;
 		color: $color_white;
 
 		&:hover {
-			background-color: rgba($color_black, .64);
+			background-color: rgba($color_accent, .64);
 		}
 
 		&:not(.disabled).active,
 		&:not(.disabled):active {
-			background-color: rgba($color_black, .80);
+			background-color: rgba($color_accent, .80);
 		}
 
 		&.disabled {
-			background-color: rgba($color_black, .02);
+			background-color: rgba($color_accent, .02);
 		}
 	}
 

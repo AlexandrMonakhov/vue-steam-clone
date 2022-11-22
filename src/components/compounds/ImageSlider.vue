@@ -2,7 +2,7 @@
 	<div class="image-slider">
 		<div
 			class="image-slider__images"
-			:style="sliderController.setTranslate()"
+			:style="sliderController.setTranslateStyle()"
 		>
 			<div
 				class="image-slider__image"
@@ -21,7 +21,6 @@
 				<the-button
 					icon="arrow-left"
 					rounded
-					hide-label
 					@click="sliderController.prev()"
 				/>
 			</div>
@@ -29,7 +28,6 @@
 				<the-button
 					icon="arrow-right"
 					rounded
-					hide-label
 					@click="sliderController.next()"
 				/>
 			</div>
@@ -61,6 +59,9 @@ export default {
 			default: null,
 		},
 	},
+	mounted() {
+		this.sliderController.setSliderElement(this.$el);
+	},
 }
 </script>
 
@@ -80,6 +81,7 @@ export default {
 	}
 
 	&__image {
+		display: flex;
 		width: 100%;
 		flex-shrink: 0;
 	}

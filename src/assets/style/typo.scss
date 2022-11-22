@@ -1,5 +1,6 @@
 // Стили
 //
+// .h1
 // .h2
 // .h3
 // .ui-title
@@ -23,7 +24,7 @@
 	}
 
 	&_medium {
-		font-weight: 500;
+		font-weight: 600;
 	}
 
 	&_bold {
@@ -41,11 +42,18 @@
 	}
 }
 
-@mixin h2 {
+@mixin h1 {
 	@include baseFont();
 	font-weight: 700;
 	font-size: 28px;
 	line-height: 34px;
+}
+
+@mixin h2 {
+	@include baseFont();
+	font-weight: 700;
+	font-size: 22px;
+	line-height: 28px;
 }
 
 @mixin h3 {
@@ -73,6 +81,7 @@
 
 @mixin button-label {
 	@include baseFont();
+	@include weightFont();
 	font-weight: 600;
 	font-size: 14px;
 	line-height: 17px;
@@ -104,6 +113,10 @@ html {
 }
 
 /* Styles */
+
+.h1 {
+	@include h1();
+}
 
 .h2 {
 	@include h2();
